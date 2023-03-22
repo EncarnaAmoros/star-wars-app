@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 16px;
+  background: black;
+}
+
+header > h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+}
