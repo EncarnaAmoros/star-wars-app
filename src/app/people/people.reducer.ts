@@ -26,11 +26,7 @@ export function peopleReducer(state: PeopleState = initialPeopleState, action: P
         ...state,
         fetching: false,
         error: undefined,
-        characters: action.people?.results,
-        count: action.people?.count,
-        next: action.people?.next,
-        previous: action.people?.previous,
-        page: action.page
+        ...action.people
       };
 
     case FETCH_PEOPLE_FAILED:

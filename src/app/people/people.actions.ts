@@ -1,4 +1,4 @@
-import { PeopleResponse } from '../types';
+import { PeopleState } from '../types';
 
 export const REQUEST_PEOPLE = 'PEOPLE_REQUEST';
 export const FETCH_PEOPLE_SUCCESS = 'PEOPLE_SUCCESS';
@@ -11,8 +11,7 @@ export interface PeopleRequest {
 
 export interface PeopleSuccess {
   type: typeof FETCH_PEOPLE_SUCCESS;
-  people: PeopleResponse;
-  page: number;
+  people: Partial<PeopleState>;
 }
 
 export interface PeopleFailed {
@@ -25,10 +24,9 @@ export const peopleRequest = (page: number): PeopleRequest => ({
   page
 });
 
-export const peopleSuccess = (people: PeopleResponse, page: number): PeopleSuccess => ({
+export const peopleSuccess = (people: Partial<PeopleState>): PeopleSuccess => ({
   type: FETCH_PEOPLE_SUCCESS,
-  people,
-  page
+  people
 });
 
 export const peopleFailed = (error: string): PeopleFailed => ({

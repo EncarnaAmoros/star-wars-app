@@ -9,17 +9,17 @@ export type PeopleState = {
   next?: string;
   page: number;
   error?: string;
-  fetching?: boolean;
+  fetching: boolean;
 };
 
 export type PeopleResponse = {
   count: number;
   previous?: string;
   next?: string;
-  results: Character[];
+  results: CharacterResponse[];
 };
 
-export type Character = {
+export type CharacterResponse = {
   name: string;
   height: string;
   mass: string;
@@ -33,7 +33,21 @@ export type Character = {
   species?: string[] | null;
   vehicles?: string[] | null;
   starships?: string[] | null;
+  created: Date;
+  edited: Date;
+  url: string;
+};
+
+export type Planet = {
+  name: string;
+  url: string;
+};
+
+export type Character = {
+  name: string;
+  height: string;
+  mass: string;
+  homeworld: Planet;
   created: string;
   edited: string;
-  url: string;
 };

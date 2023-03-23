@@ -5,6 +5,8 @@ import { peopleRequest } from './people.actions';
 
 export const usePeople = () => {
   const characters = useSelector(selectors.characters);
+  const loadingPeople = useSelector(selectors.fetchingPeople);
+  const fetchingPeopleError = useSelector(selectors.fetchPeopleError);
   const page = useSelector(selectors.page);
   const dispatch = useDispatch();
 
@@ -12,5 +14,5 @@ export const usePeople = () => {
     dispatch(peopleRequest(page));
   }, [dispatch, page]);
 
-  return { characters, page };
+  return { characters, loadingPeople, fetchingPeopleError };
 };

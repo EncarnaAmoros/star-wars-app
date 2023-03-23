@@ -6,11 +6,18 @@ export const peopleMessages = {
   title: 'Star Wars Characters',
   errorTitle: 'Error',
   generalError: 'Error en la búsqueda. Por favor, inténtelo más tarde.',
-  submitButton: 'Buscar'
+  submitButton: 'Buscar',
+  loadingText: 'Cargando datos'
 };
 
-export const characterMessages = {
-  noDataFound: 'No people found in Start Wars World.'
+export const charactersMessages = {
+  noDataFound: 'No people found in Start Wars World.',
+  name: 'Name',
+  height: 'Height',
+  mass: 'Mass',
+  created: 'Created',
+  edited: 'Edited',
+  planet: 'Planet Name'
 };
 
 export const notFound = {
