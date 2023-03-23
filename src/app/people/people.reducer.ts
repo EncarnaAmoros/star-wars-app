@@ -8,8 +8,8 @@ import { PeopleState } from '../types';
 
 export const initialPeopleState = {
   fetching: false,
-  page: 1,
-  count: 0
+  count: 0,
+  characters: []
 };
 
 export function peopleReducer(state: PeopleState = initialPeopleState, action: PeopleAction) {
@@ -26,7 +26,10 @@ export function peopleReducer(state: PeopleState = initialPeopleState, action: P
         ...state,
         fetching: false,
         error: undefined,
-        ...action.people
+        count: action.peopleData?.count,
+        previous: action.peopleData?.previous,
+        next: action.peopleData?.next,
+        characters: [...action.peopleData.characters]
       };
 
     case FETCH_PEOPLE_FAILED:

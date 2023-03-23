@@ -17,7 +17,8 @@ export const charactersMessages = {
   mass: 'Mass',
   created: 'Created',
   edited: 'Edited',
-  planet: 'Planet Name'
+  planet: 'Planet Name',
+  loadMore: 'Cargar más personajes'
 };
 
 export const notFound = {

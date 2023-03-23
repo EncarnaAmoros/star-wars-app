@@ -1,4 +1,4 @@
-import { PeopleState } from '../types';
+import { Character } from '../types';
 
 export const REQUEST_PEOPLE = 'PEOPLE_REQUEST';
 export const FETCH_PEOPLE_SUCCESS = 'PEOPLE_SUCCESS';
@@ -6,12 +6,19 @@ export const FETCH_PEOPLE_FAILED = 'PEOPLE_FAILED';
 
 export interface PeopleRequest {
   type: typeof REQUEST_PEOPLE;
-  page: number;
+  urlData?: string;
+}
+
+export interface PeopleSuccessData {
+  characters: Character[];
+  count: number;
+  previous?: string;
+  next?: string;
 }
 
 export interface PeopleSuccess {
   type: typeof FETCH_PEOPLE_SUCCESS;
-  people: Partial<PeopleState>;
+  peopleData: PeopleSuccessData;
 }
 
 export interface PeopleFailed {
@@ -19,14 +26,14 @@ export interface PeopleFailed {
   error: string;
 }
 
-export const peopleRequest = (page: number): PeopleRequest => ({
+export const peopleRequest = (urlData?: string): PeopleRequest => ({
   type: REQUEST_PEOPLE,
-  page
+  urlData
 });
 
-export const peopleSuccess = (people: Partial<PeopleState>): PeopleSuccess => ({
+export const peopleSuccess = (peopleData: PeopleSuccessData): PeopleSuccess => ({
   type: FETCH_PEOPLE_SUCCESS,
-  people
+  peopleData
 });
 
 export const peopleFailed = (error: string): PeopleFailed => ({

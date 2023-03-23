@@ -3,18 +3,23 @@ import { all, put, takeLatest, call } from 'redux-saga/effects';
 import { peopleMessages } from '../messages';
 import { PeopleResponse } from '../types';
 import { fetchPeople } from './../services/fetchPeople';
-import { PeopleRequest, peopleFailed, peopleSuccess, REQUEST_PEOPLE } from './people.actions';
+import {
+  PeopleRequest,
+  peopleFailed,
+  peopleSuccess,
+  REQUEST_PEOPLE,
+  PeopleSuccessData
+} from './people.actions';
 import { getCharactersCustomData } from './utils';
 
-function* peopleUser({ page }: PeopleRequest) {
+function* peopleUser({ urlData }: PeopleRequest) {
   try {
-    const response: PeopleResponse = yield call(fetchPeople, page);
-    const people = {
+    const response: PeopleResponse = yield call(fetchPeople, urlData);
+    const people: PeopleSuccessData = {
       count: response.count,
       previous: response.previous,
       next: response.next,
-      characters: response.results?.length > 0 ? getCharactersCustomData(response.results) : [],
-      page: page
+      characters: response.results?.length > 0 ? getCharactersCustomData(response.results) : []
     };
 
     yield put(peopleSuccess(people));

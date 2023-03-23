@@ -3,11 +3,10 @@ export type RootState = {
 };
 
 export type PeopleState = {
-  characters?: Character[];
+  characters: Character[];
   count: number;
   previous?: string;
   next?: string;
-  page: number;
   error?: string;
   fetching: boolean;
 };
