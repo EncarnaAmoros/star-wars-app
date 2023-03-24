@@ -18,7 +18,8 @@ export const charactersMessages = {
   created: 'Created',
   edited: 'Edited',
   planet: 'Planet Name',
-  loadMore: 'Cargar más personajes'
+  loadMore: 'Cargar más personajes',
+  searchPlaceholder: 'Search by name'
 };
 
 export const notFound = {

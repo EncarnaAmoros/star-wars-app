@@ -1,9 +1,9 @@
-import { ProgressSpinner } from 'primereact/progressspinner';
+import { ProgressBar } from 'primereact/progressbar';
 
 export function Loader() {
   return (
     <div data-testid="loader">
-      <ProgressSpinner />
+      <ProgressBar mode="indeterminate" style={{ height: '6px' }} />
     </div>
   );
 }

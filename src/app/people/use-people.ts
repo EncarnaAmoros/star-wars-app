@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PaginatorPageChangeEvent } from 'primereact/paginator';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectors } from '../selectors';
 import { peopleRequest } from './people.actions';
 
@@ -20,9 +21,21 @@ export const usePeople = () => {
     dispatch(peopleRequest(urlGetMorePeople));
   };
 
+  const onSearchCharacteres = (search: string) => {
+    dispatch(peopleRequest('', search));
+  };
+
   useEffect(() => {
     dispatch(peopleRequest());
   }, [dispatch]);
 
-  return { characters, loadingPeople, fetchingPeopleError, totalPeople, page, loadMorePeople };
+  return {
+    characters,
+    loadingPeople,
+    fetchingPeopleError,
+    totalPeople,
+    page,
+    loadMorePeople,
+    onSearchCharacteres
+  };
 };

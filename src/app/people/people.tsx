@@ -8,8 +8,15 @@ import { CharactersList } from './characters-list';
 import styles from './people.module.css';
 
 export function People() {
-  const { characters, loadingPeople, fetchingPeopleError, totalPeople, loadMorePeople, page } =
-    usePeople();
+  const {
+    characters,
+    loadingPeople,
+    fetchingPeopleError,
+    totalPeople,
+    page,
+    loadMorePeople,
+    onSearchCharacteres
+  } = usePeople();
   const notifications = useRef<Toast>(null);
 
   useEffect(() => {
@@ -28,16 +35,14 @@ export function People() {
       <main className={styles.container}>
         <h2>{peopleMessages.title}</h2>
         <section>
-          {loadingPeople ? (
-            <Loader />
-          ) : (
-            <CharactersList
-              characters={characters}
-              onLoadMoreCharacters={loadMorePeople}
-              totalCharacters={totalPeople}
-              page={page}
-            />
-          )}
+          <CharactersList
+            page={page}
+            characters={characters}
+            totalCharacters={totalPeople}
+            onLoadMoreCharacters={loadMorePeople}
+            onSearchCharacteres={onSearchCharacteres}
+          />
+          {loadingPeople && <Loader />}
         </section>
       </main>
     </>

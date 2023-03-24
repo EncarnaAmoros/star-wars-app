@@ -7,6 +7,7 @@ export const FETCH_PEOPLE_FAILED = 'PEOPLE_FAILED';
 export interface PeopleRequest {
   type: typeof REQUEST_PEOPLE;
   urlData?: string;
+  search?: string;
 }
 
 export interface PeopleSuccessData {
@@ -26,9 +27,10 @@ export interface PeopleFailed {
   error: string;
 }
 
-export const peopleRequest = (urlData?: string): PeopleRequest => ({
+export const peopleRequest = (urlData?: string, search?: string): PeopleRequest => ({
   type: REQUEST_PEOPLE,
-  urlData
+  urlData,
+  search
 });
 
 export const peopleSuccess = (peopleData: PeopleSuccessData): PeopleSuccess => ({

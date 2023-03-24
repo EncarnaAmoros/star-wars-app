@@ -9,6 +9,7 @@ import { Character } from '../../../types';
 import userEvent from '@testing-library/user-event';
 
 const onLoadMoreCharacters = jest.fn();
+const onSearchCharacteres = jest.fn();
 
 describe('CharactersList', () => {
   const setUp = (characters: Character[], page = 0, totalCharacters = 10) =>
@@ -18,6 +19,7 @@ describe('CharactersList', () => {
         page={page}
         totalCharacters={totalCharacters}
         onLoadMoreCharacters={onLoadMoreCharacters}
+        onSearchCharacteres={onSearchCharacteres}
       />
     );
 
@@ -28,10 +30,10 @@ describe('CharactersList', () => {
     expect(screen.queryByText(charactersMessages.noDataFound)).not.toBeInTheDocument();
   });
 
-  it('should not render data table when list is empty and render no data text', async () => {
+  it('should render data table when list is empty and render no data text', async () => {
     setUp([]);
 
-    expect(screen.queryByTestId('characters-table-test-id')).not.toBeInTheDocument();
+    expect(screen.getByTestId('characters-table-test-id')).toBeVisible();
     expect(screen.getByText(charactersMessages.noDataFound)).toBeVisible();
   });
 

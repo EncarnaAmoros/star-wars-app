@@ -12,9 +12,9 @@ import {
 } from './people.actions';
 import { getCharactersCustomData } from './utils';
 
-function* peopleUser({ urlData }: PeopleRequest) {
+function* peopleUser({ urlData, search }: PeopleRequest) {
   try {
-    const response: PeopleResponse = yield call(fetchPeople, urlData);
+    const response: PeopleResponse = yield call(fetchPeople, urlData, search);
     const people: PeopleSuccessData = {
       count: response.count,
       previous: response.previous,
