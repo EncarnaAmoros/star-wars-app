@@ -37,6 +37,17 @@ describe('CharactersList', () => {
     expect(screen.getByText(charactersMessages.noDataFound)).toBeVisible();
   });
 
+  it('should render data table with data of characters and their planet', async () => {
+    setUp(charactersMockData);
+
+    expect(screen.getByText('Luke Skywalker')).toBeVisible();
+    expect(screen.getByText('Tatooine')).toBeVisible();
+    expect(screen.getByText('C-3PO')).toBeVisible();
+    expect(screen.getByText('Alderaan')).toBeVisible();
+    expect(screen.getByText('R2-D2')).toBeVisible();
+    expect(screen.getByText('Yavin IV')).toBeVisible();
+  });
+
   it('should call on load more characters when pagination is clicked', async () => {
     setUp(charactersMockData, 1, 89);
 
