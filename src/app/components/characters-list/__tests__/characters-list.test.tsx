@@ -1,15 +1,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 
 import { CharactersList } from '../characters-list';
 import { charactersMessages } from '../../../messages';
-import { charactersMockData } from '../characters-mock';
+import { charactersMockData, characterWithEmptyPlanet } from '../../../mocks/characters-mock';
 import { Character } from '../../../types';
-import userEvent from '@testing-library/user-event';
 
 const onLoadMoreCharacters = jest.fn();
-const onSearchCharacteres = jest.fn();
+const onClickPlanetName = jest.fn();
 
 describe('CharactersList', () => {
   const setUp = (characters: Character[], page = 0, totalCharacters = 10) =>
@@ -19,7 +19,7 @@ describe('CharactersList', () => {
         page={page}
         totalCharacters={totalCharacters}
         onLoadMoreCharacters={onLoadMoreCharacters}
-        onSearchCharacteres={onSearchCharacteres}
+        onClickPlanetName={onClickPlanetName}
       />
     );
 
@@ -46,6 +46,12 @@ describe('CharactersList', () => {
     expect(screen.getByText('Alderaan')).toBeVisible();
     expect(screen.getByText('R2-D2')).toBeVisible();
     expect(screen.getByText('Yavin IV')).toBeVisible();
+  });
+
+  it('should render text not available when cell has no info', async () => {
+    setUp([characterWithEmptyPlanet], 80, 82);
+
+    expect(screen.getByText(charactersMessages.noItemFound)).toBeVisible();
   });
 
   it('should call on load more characters when pagination is clicked', async () => {
@@ -90,5 +96,19 @@ describe('CharactersList', () => {
       })
     );
     expect(onLoadMoreCharacters).not.toHaveBeenCalled();
+  });
+
+  it('should call on click planet name handle when click in a planet name', async () => {
+    setUp(charactersMockData, 80, 82);
+
+    userEvent.click(screen.getByText(/Tatooine/i));
+    expect(onClickPlanetName).toHaveBeenCalled();
+  });
+
+  it('should not call on click planet name handle when click in cell that is not the planet name', async () => {
+    setUp(charactersMockData, 80, 82);
+
+    userEvent.click(screen.getByText(/Luke Skywalker/i));
+    expect(onClickPlanetName).not.toHaveBeenCalled();
   });
 });

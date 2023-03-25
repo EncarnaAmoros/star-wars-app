@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectors } from '../selectors';
 import { peopleRequest } from './people.actions';
 
-export const usePeople = () => {
+export const usePeopleData = () => {
   const [page, setPage] = useState<number>(0);
   const characters = useSelector(selectors.characters);
   const loadingPeople = useSelector(selectors.fetchingPeople);

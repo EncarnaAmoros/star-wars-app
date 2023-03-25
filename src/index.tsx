@@ -21,7 +21,7 @@ root.render(
         <Header />
         <Routes>
           <Route path="/" element={<People />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound type="page" />} />
         </Routes>
       </div>
     </BrowserRouter>

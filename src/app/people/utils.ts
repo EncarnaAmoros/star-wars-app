@@ -9,23 +9,25 @@ export const getCharactersCustomData: (chatacters: CharacterResponse[]) => Chara
     mass: character.mass,
     created: new Date(character.created).toDateString(),
     edited: new Date(character.edited).toDateString(),
-    homeworld: {
-      name: character.planet.name,
-      diameter: character.planet.diameter,
-      climate: character.planet.climate,
-      population: character.planet.population,
-      url: character.homeworld
-    }
+    homeworld: character.planet
+      ? {
+          name: character.planet?.name,
+          diameter: character.planet?.diameter,
+          climate: character.planet?.climate,
+          population: character.planet?.population,
+          url: character.homeworld
+        }
+      : undefined
   }));
 
-export const getPeopleWithPlanetData: (
-  people: CharacterResponse,
+export const getCharacterWithPlanetData: (
+  character: CharacterResponse,
   planet: PlanetResponse
-) => CharacterResponse = (people, planet) => {
+) => CharacterResponse = (character, planet) => {
   return {
-    ...people,
+    ...character,
     planet: {
-      ...people.planet,
+      ...character.planet,
       name: planet.name,
       diameter: planet.diameter,
       climate: planet.climate,

@@ -1,0 +1,7 @@
+.clicable > div {
+  cursor: pointer;
+}
+
+.clicable:hover {
+  background-color: #fff5c4;
+}

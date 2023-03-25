@@ -7,7 +7,9 @@ export const peopleMessages = {
   errorTitle: 'Error',
   generalError: 'Error en la búsqueda. Por favor, inténtelo más tarde.',
   submitButton: 'Buscar',
-  loadingText: 'Cargando datos'
+  loadingText: 'Cargando datos',
+  searchPlaceholder: 'Search by name',
+  peoplePlanetTitleModal: 'Planet'
 };
 
 export const charactersMessages = {
@@ -19,10 +21,17 @@ export const charactersMessages = {
   edited: 'Edited',
   planet: 'Planet Name',
   loadMore: 'Cargar más personajes',
-  searchPlaceholder: 'Search by name'
+  noItemFound: 'Not available'
+};
+
+export const planetMessages = {
+  diameter: 'Diameter',
+  climate: 'Climate',
+  population: 'Population'
 };
 
 export const notFound = {
   title: 'Not found',
-  description: "Sorry, the page you are trying to go to does't exist."
+  pageError: "Sorry, the page you are trying to go to does't exist.",
+  dataError: 'Sorry, the data you are trying to access is not available right now.'
 };

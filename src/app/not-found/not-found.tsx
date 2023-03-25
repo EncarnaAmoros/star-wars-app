@@ -1,10 +1,14 @@
 import { notFound } from '../messages';
 
-export function NotFound() {
+type NotFoundProps = {
+  type: 'page' | 'data';
+};
+
+export function NotFound({ type }: NotFoundProps) {
   return (
     <main>
       <h2>{notFound.title}</h2>
-      <p>{notFound.description}</p>
+      <p>{type === 'page' ? notFound.pageError : notFound.dataError}</p>
     </main>
   );
 }

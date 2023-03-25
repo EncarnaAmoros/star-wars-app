@@ -10,7 +10,7 @@ import {
   REQUEST_PEOPLE,
   PeopleSuccessData
 } from './people.actions';
-import { getCharactersCustomData, getPeopleWithPlanetData } from './utils';
+import { getCharactersCustomData, getCharacterWithPlanetData } from './utils';
 
 const getPeopleWithPlanet = async (response: PeopleResponse) => {
   if (!response?.results || response?.results.length === 0) {
@@ -20,7 +20,7 @@ const getPeopleWithPlanet = async (response: PeopleResponse) => {
   const peopleWithPlanet: CharacterResponse[] = await Promise.all(
     response.results.map(async (people: CharacterResponse) => {
       const planet: PlanetResponse = await fetch(people.homeworld).then((data) => data.json());
-      return getPeopleWithPlanetData(people, planet);
+      return getCharacterWithPlanetData(people, planet);
     })
   );
   return peopleWithPlanet;

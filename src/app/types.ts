@@ -20,19 +20,19 @@ export type PeopleResponse = {
 
 export type PlanetResponse = {
   name: string;
-  rotation_period: string;
-  orbital_period: string;
   diameter: string;
   climate: string;
-  gravity: string;
-  terrain: string;
-  surface_water: string;
   population: string;
-  residents: string[];
-  films: string[];
-  created: Date;
-  edited: Date;
-  url: string;
+  url?: string;
+  rotation_period?: string;
+  orbital_period?: string;
+  gravity?: string;
+  terrain?: string;
+  surface_water?: string;
+  residents?: string[];
+  films?: string[];
+  created?: Date;
+  edited?: Date;
 };
 
 export type CharacterResponse = {
@@ -45,7 +45,7 @@ export type CharacterResponse = {
   birth_year: string;
   gender: string;
   homeworld: string;
-  planet: PlanetResponse;
+  planet?: PlanetResponse;
   films?: string[] | null;
   species?: string[] | null;
   vehicles?: string[] | null;
@@ -67,7 +67,7 @@ export type Character = {
   name: string;
   height: string;
   mass: string;
-  homeworld: Planet;
+  homeworld?: Planet;
   created: string;
   edited: string;
 };
