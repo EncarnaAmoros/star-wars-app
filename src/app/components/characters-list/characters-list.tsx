@@ -38,7 +38,7 @@ export function CharactersList({
 
   return (
     <div data-testid="characters-list-test-id">
-      {characters?.length === 0 && <p>{charactersMessages.noDataFound}</p>}
+      {characters?.length === 0 && <p className="p-2">{charactersMessages.noDataFound}</p>}
       <>
         <DataTable
           value={characters || []}

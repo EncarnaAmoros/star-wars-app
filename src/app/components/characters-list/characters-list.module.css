@@ -3,5 +3,6 @@
 }
 
 .clicable:hover {
-  background-color: #fff5c4;
+  background-color: #ffe082;
+  color: black;
 }

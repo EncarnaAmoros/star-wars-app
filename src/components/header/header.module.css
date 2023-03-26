@@ -4,6 +4,7 @@ header {
   justify-content: center;
   padding: 16px;
   background: black;
+  border-bottom: 1px solid #ffe082;
 }
 
 header > h1 {
