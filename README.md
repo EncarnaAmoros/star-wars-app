@@ -70,6 +70,6 @@ This is the structure used in this project:
 
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-For some of the UI components, CSS and icons we are using [PrimeReact](https://primereact.org/).
+For some of the UI components, CSS and icons we are using [PrimeReact](https://primereact.org/). To apply some CSS rules we are using also [Tailwind CSS](https://tailwindcss.com/).
 
 This app was made using: React, TypeScript, Redux, Redux Saga, Redux Toolkit, React Router DOM. For Testing: Jest Testing Library. Errors control and format: EsLint & prettier.

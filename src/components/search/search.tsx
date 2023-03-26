@@ -22,10 +22,10 @@ export function Search({ placeholder, loadingSearch, onSearch }: SearchProps) {
   }
 
   return (
-    <div data-testid="search-component">
-      <span className="p-input-icon-left">
+    <div data-testid="search-component" className="pb-1.5 w-1/2">
+      <span className="p-input-icon-left w-full">
         <i className={loadingSearch ? 'pi pi-spin pi-spinner' : 'pi pi-search'} />
-        <InputText onChange={handleChange} placeholder={placeholder} />
+        <InputText onChange={handleChange} placeholder={placeholder} className="w-full" />
       </span>
     </div>
   );

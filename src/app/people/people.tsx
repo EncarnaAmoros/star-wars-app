@@ -5,6 +5,7 @@ import { Loader } from '../../components/loader';
 import { Search } from '../../components/search';
 import { CharactersList } from '../components/characters-list';
 import { PlanetDetail } from '../components/planet-detail';
+import { Title } from '../../components/title';
 import { Modal } from '../../components/modal';
 import { NotFound } from '../not-found';
 import { peopleMessages } from '../messages';
@@ -40,7 +41,7 @@ export function People() {
       <Toast ref={notifications} />
 
       <main className={styles.container}>
-        <h2>{peopleMessages.title}</h2>
+        <Title text={peopleMessages.title} />
         <section>
           <div className={styles.search}>
             <Search
