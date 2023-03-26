@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# Star Wars React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app offers information about the Star Wars universe and gets its data from [SWAPI](https://swapi.dev/).
 
-## Available Scripts
+## Project scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `yarn install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It installs the necessary package dependencies. That way, we can start and run the project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### `yarn start`
 
-### `npm test`
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `yarn test`
 
-### `npm run build`
+Launches the test runner in interactive watch mode. More information [here] (https://facebook.github.io/create-react-app/docs/running-tests)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### `yarn lint`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+It analyzes and displays errors in the project using EsLint.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### `yarn lint:fix`
 
-### `npm run eject`
+It solves errors in the project detected by EsLint.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### `yarn format`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+It formats project files using the format confifuration we have with Prettier.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `yarn build`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+It builds the app for production to the `build` folder.
 
-## Learn More
+#### `yarn eject`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Note: once you `eject`, you can’t go back!_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+It will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc.) right into your project, so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point, you’re on your own.
+
+## Project structure
+
+This is the structure used in this project:
+
+- node_modules: directory that will be created when we run the instalation command in the project
+
+- public: static resources
+
+- src:
+
+  - index.tsx: app entry
+
+  - components: UI reusable components not related to any app domain _(e.g., button, loader, modal)_
+
+  - app: common files for the app _(e.g., saga, reducer, store, types, messages, constants, mocks)_ & domain components & pages directories
+
+    - components: UI reusable components related to the app domain _(e.g., character, planet)_
+
+    - mocks: mocked data for tests
+
+    - services: files to fetch SWAPI info
+
+    - not-found: page for routes not found
+
+    - people: page to see and interact with Star Wars people info
+
+## Resources used
+
+The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+For some of the UI components, CSS and icons we are using [PrimeReact](https://primereact.org/).
+
+This app was made using: React, TypeScript, Redux, Redux Saga, Redux Toolkit, React Router DOM. For Testing: Jest Testing Library. Errors control and format: EsLint & prettier.
