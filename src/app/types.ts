@@ -31,8 +31,8 @@ export type PlanetResponse = {
   surface_water?: string;
   residents?: string[];
   films?: string[];
-  created?: Date;
-  edited?: Date;
+  created?: string;
+  edited?: string;
 };
 
 export type CharacterResponse = {
@@ -50,8 +50,8 @@ export type CharacterResponse = {
   species?: string[] | null;
   vehicles?: string[] | null;
   starships?: string[] | null;
-  created: Date;
-  edited: Date;
+  created: string;
+  edited: string;
   url: string;
 };
 

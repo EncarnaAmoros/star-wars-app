@@ -25,9 +25,9 @@ export const charactersMessages = {
 };
 
 export const planetMessages = {
-  diameter: 'Diameter',
-  climate: 'Climate',
-  population: 'Population'
+  diameter: 'Diameter:',
+  climate: 'Climate:',
+  population: 'Population:'
 };
 
 export const notFound = {

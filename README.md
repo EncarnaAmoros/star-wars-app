@@ -2,6 +2,8 @@
 
 This app offers information about the Star Wars universe and gets its data from [SWAPI](https://swapi.dev/).
 
+![App UI Example](app-ui-example.png)
+
 ## Project scripts
 
 In the project directory, you can run:
@@ -72,4 +74,4 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 
 For some of the UI components, CSS and icons we are using [PrimeReact](https://primereact.org/). To apply some CSS rules we are using also [Tailwind CSS](https://tailwindcss.com/).
 
-This app was made using: React, TypeScript, Redux, Redux Saga, Redux Toolkit, React Router DOM. For Testing: Jest Testing Library. Errors control and format: EsLint & prettier.
+This app was made using: React, TypeScript, Redux, Redux Saga, Redux Toolkit, React Router DOM. For Testing: Jest Testing Library + msw for integration tests. Errors control and format: EsLint & prettier.

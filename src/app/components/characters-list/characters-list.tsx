@@ -38,38 +38,36 @@ export function CharactersList({
 
   return (
     <div data-testid="characters-list-test-id">
-      {characters?.length === 0 && <p className="p-2">{charactersMessages.noDataFound}</p>}
-      <>
-        <DataTable
-          value={characters || []}
-          scrollable
-          scrollHeight="400px"
-          data-testid="characters-table-test-id"
-        >
-          <Column header={charactersMessages.name} field="name" sortable />
-          <Column header={charactersMessages.height} field="height" sortable />
-          <Column header={charactersMessages.mass} field="mass" sortable />
-          <Column header={charactersMessages.created} field="created" sortable />
-          <Column header={charactersMessages.edited} field="edited" sortable />
-          <Column
-            header={charactersMessages.planet}
-            className={onClickPlanetName ? styles.clicable : ''}
-            field="homeworld.name"
-            body={renderPlanetCell}
-            sortable
-          />
-        </DataTable>
-
-        <Paginator
-          first={page}
-          rows={CHARACTERS_PER_PAGE}
-          totalRecords={totalCharacters}
-          onPageChange={onLoadMoreCharacters}
-          template={{
-            layout: 'PrevPageLink CurrentPageReport NextPageLink'
-          }}
+      <DataTable
+        value={characters || []}
+        scrollable
+        scrollHeight="400px"
+        data-testid="characters-table-test-id"
+        emptyMessage={charactersMessages.noDataFound}
+      >
+        <Column header={charactersMessages.name} field="name" sortable />
+        <Column header={charactersMessages.height} field="height" sortable />
+        <Column header={charactersMessages.mass} field="mass" sortable />
+        <Column header={charactersMessages.created} field="created" sortable />
+        <Column header={charactersMessages.edited} field="edited" sortable />
+        <Column
+          header={charactersMessages.planet}
+          className={onClickPlanetName ? styles.clicable : ''}
+          field="homeworld.name"
+          body={renderPlanetCell}
+          sortable
         />
-      </>
+      </DataTable>
+
+      <Paginator
+        first={page}
+        rows={CHARACTERS_PER_PAGE}
+        totalRecords={totalCharacters}
+        onPageChange={onLoadMoreCharacters}
+        template={{
+          layout: 'PrevPageLink CurrentPageReport NextPageLink'
+        }}
+      />
     </div>
   );
 }
