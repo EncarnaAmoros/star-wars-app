@@ -1,6 +1,6 @@
 # Star Wars React App
 
-This app offers information about the Star Wars universe and gets its data from [SWAPI](https://swapi.dev/).
+This app offers information about the Star Wars universe and gets its data from [SWAPI](https://swapi.dev/). Demo [here!](https://user-images.githubusercontent.com/7465602/227859409-887e89eb-d575-4ffa-8d20-e62bd002edb7.webm)
 
 ![App UI Example](app-ui-example.png)
 
